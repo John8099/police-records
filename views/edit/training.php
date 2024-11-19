@@ -1,20 +1,20 @@
 <?php
-require("../backend/nodes.php");
+require("../../backend/nodes.php");
 $title = "Edit Training";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <?php require("../views/components/head.php"); ?>
+  <?php require("../../views/components/head.php"); ?>
 </head>
 
 <body>
   <div class="wrapper">
-    <?php require("./components/side-bar.php") ?>
+    <?php require("../components/side-bar.php") ?>
 
     <div class="main">
-      <?php require("./components/nav-bar.php") ?>
+      <?php require("../components/nav-bar.php") ?>
 
       <main class="content">
         <div class="container p-0">
@@ -64,7 +64,7 @@ $title = "Edit Training";
     </div>
   </div>
 </body>
-<?php require("../views/components/script.php"); ?>
+<?php require("../../views/components/script.php"); ?>
 <script>
   $("#form-add-training").on("submit", function(e) {
     e.preventDefault();

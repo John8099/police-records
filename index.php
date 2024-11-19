@@ -29,7 +29,6 @@ require("./backend/nodes.php");
                 Sign in to your account to continue
               </p>
             </div>
-            
             <div class="card">
               <div class="card-body">
                 <div class="m-sm-3">

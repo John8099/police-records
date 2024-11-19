@@ -23,6 +23,10 @@
             <i class="align-middle me-1" data-feather="user"></i>
             Profile
           </a>
+          <a class="dropdown-item" href="<?= SERVER_NAME . "/views/change-password" ?>">
+            <i class="align-middle me-1" data-feather="shield"></i>
+            Change Password
+          </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<?= SERVER_NAME . "/backend/nodes?action=logout" ?>">
             <i class="align-middle me-1" data-feather="log-out"></i>

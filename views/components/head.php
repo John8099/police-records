@@ -30,6 +30,8 @@ $USER = $helpers->get_current_user();
 <!-- End datatables -->
 <link rel="stylesheet" href="<?= SERVER_NAME . "/assets/vendors/toastify/toastify.css" ?>">
 
+<link rel='stylesheet' href="<?= SERVER_NAME . "/custom-assets/components/image-upload/css/bootstrap-imageupload.min.css" ?>">
+
 <script src="<?= SERVER_NAME . "/assets/vendors/jquery/jquery.min.js" ?>"></script>
 
 <script src="<?= SERVER_NAME . "/assets/vendors/sweetalert2/sweetalert2.all.min.js" ?>"></script>

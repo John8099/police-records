@@ -7,4 +7,6 @@
 <script src="<?= SERVER_NAME . "/assets/vendors/datatables/js/responsive.bootstrap5.min.js" ?>"></script>
 
 <script src="<?= SERVER_NAME . "/custom-assets/js/components.js" ?>"></script>
+<script src="<?= SERVER_NAME . "/custom-assets/components/image-upload/js/bootstrap-imageupload.min.js" ?>"></script>
+
 <script src="<?= SERVER_NAME . "/assets/js/app.js" ?>"></script>

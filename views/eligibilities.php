@@ -49,7 +49,7 @@ $title = "Eligibility";
                       $date = "---";
                       $place = "---";
 
-                      $eligibility = $helpers->select_all_individual("eligibility", "user_id='$user->id'");
+                      $eligibility = $helpers->select_all_individual("eligibility", "user_id='$user->id' ORDER BY id DESC LIMIT 1");
                       if ($eligibility) {
                         $title = $eligibility->title;
                         $rating = $eligibility->rating;
@@ -67,9 +67,9 @@ $title = "Eligibility";
                         <td class="text-start"><?= $place ?></td>
                         <td class="text-start"><?= $date ?></td>
                         <td class="text-start">
-                          <a href="<?= SERVER_NAME . "/views/add-eligibility?id=$user->id" ?>" class="btn btn-primary">
-                            Add Eligibility
-                          </a>
+                          <button type="button" onclick='handleViewProfile(`<?= SERVER_NAME . "/views/profile?id=$user->id" ?>`, "#eligibility")' class="btn btn-primary">
+                            View Profile
+                          </button>
                         </td>
                       </tr>
                       <?= $helpers->generate_modal_img($modal_id, $img_id, $caption_id) ?>

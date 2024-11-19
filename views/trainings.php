@@ -63,9 +63,9 @@ $title = "Trainings";
                         <td class="text-start"><?= $trainingStart ?></td>
                         <td class="text-start"><?= $trainingEnd ?></td>
                         <td class="text-start">
-                          <a href="<?= SERVER_NAME . "/views/add-training?id=$user->id" ?>" class="btn btn-primary">
-                            Add Trainings
-                          </a>
+                          <button type="button" onclick='handleViewProfile(`<?= SERVER_NAME . "/views/profile?id=$user->id" ?>`, "#training")' class="btn btn-primary">
+                            View Profile
+                          </button>
                         </td>
                       </tr>
                       <?= $helpers->generate_modal_img($modal_id, $img_id, $caption_id) ?>

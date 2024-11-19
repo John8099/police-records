@@ -240,3 +240,8 @@ window.showToast = (message, color = "danger") => {
     backgroundColor: colorHex,
   }).showToast();
 };
+
+window.handleViewProfile = (url, tab) => {
+  sessionStorage.setItem("profileTab", tab);
+  window.location.href = url;
+};

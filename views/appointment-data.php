@@ -1,6 +1,6 @@
 <?php
 require("../backend/nodes.php");
-$title = "Promotions";
+$title = "Appointment Data";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +28,11 @@ $title = "Promotions";
                   <tr>
                     <th class="text-center">Avatar</th>
                     <th class="text-start">Name</th>
-                    <th class="text-start">Latest Rank/Position</th>
-                    <th class="text-start">Effective Date</th>
+                    <th class="text-start">Latest Appointment Date</th>
+                    <th class="text-start">Appointment Type</th>
+                    <th class="text-start">Assignment/Station</th>
+                    <th class="text-start">Tenure</th>
+                    <th class="text-start">Status</th>
                     <th class="text-start">Action</th>
                   </tr>
                 </thead>
@@ -42,13 +45,19 @@ $title = "Promotions";
                       $img_id = "company-image_$user->id";
                       $caption_id = "company-caption_$user->id";
 
-                      $rank = "---";
-                      $effectiveDate = "---";
+                      $appointmentDate = "---";
+                      $appointmentType = "---";
+                      $assignment = "---";
+                      $tenure = "---";
+                      $status = "---";
 
-                      $promotion = $helpers->select_all_individual("promotions", "user_id='$user->id' ORDER BY id DESC LIMIT 1");
-                      if ($promotion) {
-                        $effectiveDate = date("F d, Y", strtotime($promotion->effective_date));
-                        $rank = $promotion->rank;
+                      $appointment = $helpers->select_all_individual("appointment", "user_id='$user->id' ORDER BY id DESC LIMIT 1");
+                      if ($appointment) {
+                        $appointmentDate =  date("F d, Y", strtotime($appointment->appointment_date));
+                        $appointmentType = $appointment->appointment_type;
+                        $assignment = $appointment->assignment_station == "Janiuay Municipal Police Station" ? $appointment->assignment_station : "Specific Unit/Section: $appointment->assignment_station";
+                        $tenure = $appointment->tenure;
+                        $status = $appointment->appointment_type;
                       }
                   ?>
                       <tr>
@@ -56,10 +65,13 @@ $title = "Promotions";
                           <?= $helpers->generate_modal_click_avatar($helpers->get_avatar_link($user->id), $modal_id, $img_id, $caption_id) ?>
                         </td>
                         <td class="text-start"><?= $helpers->get_full_name($user->id) ?></td>
-                        <td class="text-start"><?= $rank ?></td>
-                        <td class="text-start"><?= $effectiveDate ?></td>
+                        <td class="text-start"><?= $appointmentDate ?></td>
+                        <td class="text-start"><?= $appointmentType ?></td>
+                        <td class="text-start"><?= $assignment ?></td>
+                        <td class="text-start"><?= $tenure ?></td>
+                        <td class="text-start"><?= $status ?></td>
                         <td class="text-start">
-                          <button type="button" onclick='handleViewProfile(`<?= SERVER_NAME . "/views/profile?id=$user->id" ?>`, "#promotion")' class="btn btn-primary">
+                          <button type="button" onclick='handleViewProfile(`<?= SERVER_NAME . "/views/profile?id=$user->id" ?>`, "#appointment")' class="btn btn-primary">
                             View Profile
                           </button>
                         </td>

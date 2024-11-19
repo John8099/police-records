@@ -38,6 +38,27 @@ class Helpers
           ),
         ),
         array(
+          "title" => "Appointment Data",
+          "config" => array(
+            "icon" => "calendar",
+            "url" => SERVER_NAME . "/views/appointment-data",
+          ),
+        ),
+        array(
+          "title" => "PFT",
+          "config" => array(
+            "icon" => "folder",
+            "url" => SERVER_NAME . "/views/pft",
+          ),
+        ),
+        array(
+          "title" => "IPER",
+          "config" => array(
+            "icon" => "briefcase",
+            "url" => SERVER_NAME . "/views/iper",
+          ),
+        ),
+        array(
           "title" => "Trainings",
           "config" => array(
             "icon" => "list",

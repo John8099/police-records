@@ -1,20 +1,20 @@
 <?php
-require("../backend/nodes.php");
-$title = "Add Training";
+require("../../backend/nodes.php");
+$title = "Add Promotion";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <?php require("../views/components/head.php"); ?>
+  <?php require("../../views/components/head.php"); ?>
 </head>
 
 <body>
   <div class="wrapper">
-    <?php require("./components/side-bar.php") ?>
+    <?php require("../components/side-bar.php") ?>
 
     <div class="main">
-      <?php require("./components/nav-bar.php") ?>
+      <?php require("../components/nav-bar.php") ?>
 
       <main class="content">
         <div class="container p-0">
@@ -25,22 +25,22 @@ $title = "Add Training";
             </button>
           </div>
           <div class="card">
-            <?php $promotion = $helpers->select_all_individual("promotions", "id=$_GET[id]"); ?>
+            <?php $userData = $helpers->select_all_individual("users", "id=$_GET[id]"); ?>
             <div class="card-body">
               <div class="container">
-                <form id="form-edit-promotion" method="POST">
-                  <input type="text" name="id" value="<?= $promotion->id ?>" hidden readonly>
+                <form id="form-add-promotion" method="POST">
+                  <input type="text" name="id" value="<?= $userData->id ?>" hidden readonly>
                   <div class="mb-3">
                     <label class="form-label">Rank</label>
-                    <input class="form-control form-control-lg" type="text" value="<?= $promotion->rank ?>" name="rank" required />
+                    <input class="form-control form-control-lg" type="text" name="rank" required />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Authority</label>
-                    <input class="form-control form-control-lg" type="text" value="<?= $promotion->authority ?>" name="authority" required />
+                    <input class="form-control form-control-lg" type="text" name="authority" required />
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Effective Date</label>
-                    <input class="form-control form-control-lg" type="date" value="<?= $promotion->effective_date ?>" name="effective_date" required />
+                    <input class="form-control form-control-lg" type="date" name="effective_date" required />
                   </div>
                   <div class="text-end mt-3">
                     <button type="submit" class="btn btn-lg btn-primary">
@@ -56,13 +56,13 @@ $title = "Add Training";
     </div>
   </div>
 </body>
-<?php require("../views/components/script.php"); ?>
+<?php require("../../views/components/script.php"); ?>
 <script>
-  $("#form-edit-promotion").on("submit", function(e) {
+  $("#form-add-promotion").on("submit", function(e) {
     e.preventDefault();
     swal.showLoading()
     $.ajax({
-      url: `<?= SERVER_NAME . "/backend/nodes?action=edit_promotion" ?>`,
+      url: `<?= SERVER_NAME . "/backend/nodes?action=add_promotion" ?>`,
       type: "POST",
       data: new FormData(this),
       contentType: false,
