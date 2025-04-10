@@ -57,7 +57,7 @@ $title = "Appointment Data";
                         $appointmentType = $appointment->appointment_type;
                         $assignment = $appointment->assignment_station == "Janiuay Municipal Police Station" ? $appointment->assignment_station : "Specific Unit/Section: $appointment->assignment_station";
                         $tenure = $appointment->tenure;
-                        $status = $appointment->appointment_type;
+                        $status = $appointment->status;
                       }
                   ?>
                       <tr>
